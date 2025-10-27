@@ -1,0 +1,17 @@
+# macOS hidden files
+.DS_Store
+
+# Node modules (if you ever use npm)
+node_modules/
+
+# Log files
+*.log
+
+# Build outputs (if you ever compile or bundle)
+dist/
+build/
+
+# Optional: editor files
+*.swp
+*.sublime-workspace
+*.vscode/
