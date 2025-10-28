@@ -38,5 +38,11 @@ h1 {
   text-align: end;
 
   font-size: 3rem;
-  color: rgb(0, 0, 0, 0.4);
+  color: rgb(0, 0, 0, 0.6);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
