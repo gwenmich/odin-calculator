@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'Digital-7';
+  src: url('../fonts/digital-7.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Digital-7', monospace;
+}
+
+h1 {
+  text-align: center;
+}
+
+.calculator {
+  border: 4px solid rgb(0, 0, 0, 0.6);
+  border-radius: 15px;
+
+  height: 500px;
+  width: 300px;
+
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.display {
+  margin: 20px 10px;
+  
+  border: 4px inset rgb(169, 169, 169);
+  border-radius: 10px;
+
+  background-color: rgb(50, 205, 50, 0.3);
+}
+
+#display {
+  margin: 16px;
+  text-align: end;
+
+  font-size: 3rem;
+  color: rgb(0, 0, 0, 0.4);
+}
