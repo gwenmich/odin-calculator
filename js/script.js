@@ -36,11 +36,12 @@ function operate(operator, num1, num2) {
 const display = document.querySelector("#display");
 const numsDiv = document.querySelector(".number-btns");
 const opersDiv = document.querySelector(".operator-btns");
+const equalBtnDiv = document.querySelector(".equal-btn");
 
 
 function buildNumButns() {
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 9; i >= 0; i--) {
       const numBtn = document.createElement("button");
       numBtn.classList.add("num");
       numBtn.textContent = i;
@@ -51,6 +52,11 @@ function buildNumButns() {
   dotBtn.classList.add("dot");
   dotBtn.textContent = ".";
   numsDiv.appendChild(dotBtn);
+
+  const clearBtn = document.createElement("button");
+  clearBtn.classList.add("clear");
+  clearBtn.textContent = "C";
+  numsDiv.appendChild(clearBtn);
 }
 
 
@@ -72,6 +78,11 @@ function buildOperatorBtns() {
     
     opersDiv.appendChild(operBtn);
   }
+
+  const equalsBtn = document.createElement("button");
+  equalsBtn.classList.add("equals");
+  equalsBtn.textContent = "=";
+  equalBtnDiv.appendChild(equalsBtn);
 }
 
 
