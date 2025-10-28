@@ -1,5 +1,4 @@
 function add(num1, num2) {
-  display.textContent = `${num1} + ${num2}`
   return num1 + num2;
 }
 
@@ -34,6 +33,7 @@ function operate(operator, num1, num2) {
 }
 
 const display = document.querySelector("#display");
+display.textContent = "0";
 const numsDiv = document.querySelector(".number-btns");
 const opersDiv = document.querySelector(".operator-btns");
 const equalBtnDiv = document.querySelector(".equal-btn");
@@ -86,8 +86,62 @@ function buildOperatorBtns() {
 }
 
 
-
 buildNumButns();
 buildOperatorBtns();
 
-console.log(operate("+", 1, 2));
+
+let firstNum = "";
+let secondNum = "";
+let currOperator = null;
+let reset = false;
+
+
+numsDiv.addEventListener("click", (event) => {
+  if (event.target.tagName !== "BUTTON") return;
+  const choice = event.target.textContent;
+  const nums = "0123456789";
+
+  if (nums.includes(choice) || choice == ".") {
+    if (reset || display.textContent === "0") {
+      display.textContent = "";
+      reset = false;
+    }
+
+    if (choice === "." && display.textContent.includes(".")) return;
+
+    display.textContent += choice;
+  }
+
+  if (choice === "C") {
+    display.textContent = "0";
+    firstNum = "";
+    secondNum = "";
+    currOperator = null;
+    reset = false;
+  }
+})
+
+
+opersDiv.addEventListener("click", (event) => {
+  if (event.target.tagName !== "BUTTON") return;
+  const choice = event.target.textContent;
+  
+  firstNum = display.textContent;
+  currOperator = choice;
+  reset = true;  
+})
+
+
+equalBtnDiv.addEventListener("click", (event) => {
+  if (event.target.tagName !== "BUTTON") return;
+
+  if (currOperator) {
+    secondNum = display.textContent;
+    const result = operate(currOperator, parseFloat(firstNum), parseFloat(secondNum));
+    display.textContent = result;
+    firstNum = result;
+    reset = true;
+    currOperator = null;
+  }
+ })
+
